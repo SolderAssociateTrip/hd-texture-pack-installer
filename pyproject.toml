@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hd-texture-pack-installer"
+version = "0.4.2"
+description = "Windows desktop tool for installing and applying HD texture packs into game installs."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "hd-texture-pack-installer contributors" }]
+keywords = ["texture-pack", "hd-retexture", "modding", "installer", "windows"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment",
+    "Topic :: Multimedia :: Graphics",
+]
+
+dependencies = [
+    "PySide6>=6.7",
+    "httpx>=0.27",
+    "tomli-w>=1.0",
+    "zstandard>=0.22",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-qt>=4.4",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+hdtpi = "hdtpi.__main__:main"
+
+[project.gui-scripts]
+hdtpi-gui = "hdtpi.app:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
