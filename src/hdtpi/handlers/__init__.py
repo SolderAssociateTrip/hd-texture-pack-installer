@@ -1,0 +1,1 @@
+"""Thin handlers bridging UI/CLI to services."""
